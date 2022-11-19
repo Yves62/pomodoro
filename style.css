@@ -68,6 +68,12 @@ body{
    border-radius: 10px;
    border: none;
    display: inline-block;
-   min-width: 70px;
+   min-width: 90px;
    cursor: pointer;
+}
+.container .btn-group #start{
+   display: block;
+}
+.container .btn-group #reload{
+   display: none;
 }

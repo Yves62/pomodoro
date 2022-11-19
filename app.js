@@ -7,15 +7,18 @@ let secondsWork = 0;
 let minutesWork = 25;
 let secondsPause = 0;
 let minutesPause = 5;
+let intervalWork;
+let intervalPause;
 
 /**
- * Function to decreaseMinutes
+ * Function to decreaseMinutesWork
  */
 function decreaseMinutesWork() {
   if (secondsWork === 0) {
     minutesWork--;
   }
 }
+
 /**
  * Function to decreaseMinutesPause
  */
@@ -26,40 +29,77 @@ function decreaseMinutesPause() {
 }
 
 /**
- * function to decrease seconds 59 to 00
+ * Function to clear interval work
+ */
+function stopCptWork() {
+  if (secondsWork === 0 && minutesWork === 0) {
+    timeWork.textContent = `${(minutesWork = 25)} : 0${(secondsWork = 0)}`;
+    clearInterval(intervalWork);
+    decreaseSecondsPause();
+  }
+}
+
+/**
+ * Function to clear interval pause
+ */
+function stopCptPause() {
+  if (secondsPause === 0 && minutesPause === 0) {
+    timePause.textContent = `${(secondsPause = 5)} : 0${(minutesPause = 0)}`;
+    clearInterval(intervalPause);
+  }
+}
+
+/**
+ * function to decrease seconds work 59 to 00
  */
 function decreaseSecondsWork() {
-  setInterval(() => {
+  intervalWork = setInterval(() => {
     if (secondsWork === 0) {
       decreaseMinutesWork();
       secondsWork = 60;
-      secondsWork--;
-      secondsWork < 10 ? timeWork.textContent = `${minutesWork} : 0${secondsWork}` : timeWork.textContent = `${minutesWork} : ${secondsWork}`;
     } else {
       secondsWork--;
-      secondsWork < 10 ? timeWork.textContent = `${minutesWork} : 0${secondsWork}` : timeWork.textContent = `${minutesWork} : ${secondsWork}`;
+      secondsWork < 10
+        ? (timeWork.textContent = `${minutesWork} : 0${secondsWork}`)
+        : (timeWork.textContent = `${minutesWork} : ${secondsWork}`);
+      stopCptWork();
     }
   }, 1000);
 }
 
 /**
- * function to decrease seconds 59 to 00
+ * function to decrease seconds pause 59 to 00
  */
 function decreaseSecondsPause() {
-  setInterval(() => {
+  intervalPause = setInterval(() => {
     if (secondsPause === 0) {
-      decreaseMinutesWork();
+      decreaseMinutesPause();
       secondsPause = 60;
       secondsPause--;
-      secondsPause < 10 ? timePause.textContent = `${minutesPause} : 0${secondsPause}` : timePause.textContent = `${minutesPause} : ${secondsPause}`;
+      secondsPause < 10
+        ? (timePause.textContent = `${minutesPause} : 0${secondsPause}`)
+        : (timePause.textContent = `${minutesPause} : ${secondsPause}`);
     } else {
       secondsPause--;
-      secondsPause < 10 ? timePause.textContent = `${minutesPause} : 0${secondsPause}` : timePause.textContent = `${minutesPause} : ${secondsPause}`;
+      secondsPause < 10
+        ? (timePause.textContent = `${minutesPause} : 0${secondsPause}`)
+        : (timePause.textContent = `${minutesPause} : ${secondsPause}`);
+      stopCptPause();
     }
   }, 1000);
 }
 
 btnStart.addEventListener("click", () => {
   decreaseSecondsWork();
-  btnStart.textContent = 'stop'
+  btnStart.style.display = "none";
+  btnReload.style.display = "block";
+});
+
+btnReload.addEventListener("click", () => {
+  timeWork.textContent = `${(minutesWork = 25)} : 0${(secondsWork = 0)}`;
+  clearInterval(intervalWork);
+  timePause.textContent = `${(secondsPause = 5)} : 0${(minutesPause = 0)}`;
+  clearInterval(intervalPause);
+  btnStart.style.display = "block";
+  btnReload.style.display = "none";
 });
