@@ -5,6 +5,8 @@ const btnReload = document.querySelector("#reload");
 
 let secondsWork = 0;
 let minutesWork = 25;
+let secondsPause = 0;
+let minutesPause = 5;
 
 /**
  * Function to decreaseMinutes
@@ -12,6 +14,14 @@ let minutesWork = 25;
 function decreaseMinutesWork() {
   if (secondsWork === 0) {
     minutesWork--;
+  }
+}
+/**
+ * Function to decreaseMinutesPause
+ */
+function decreaseMinutesPause() {
+  if (secondsPause === 0) {
+    minutesPause--;
   }
 }
 
@@ -32,7 +42,22 @@ function decreaseSecondsWork() {
   }, 1000);
 }
 
-// decreaseSecondsWork();
+/**
+ * function to decrease seconds 59 to 00
+ */
+function decreaseSecondsPause() {
+  setInterval(() => {
+    if (secondsPause === 0) {
+      decreaseMinutesWork();
+      secondsPause = 60;
+      secondsPause--;
+      secondsPause < 10 ? timePause.textContent = `${minutesPause} : 0${secondsPause}` : timePause.textContent = `${minutesPause} : ${secondsPause}`;
+    } else {
+      secondsPause--;
+      secondsPause < 10 ? timePause.textContent = `${minutesPause} : 0${secondsPause}` : timePause.textContent = `${minutesPause} : ${secondsPause}`;
+    }
+  }, 1000);
+}
 
 btnStart.addEventListener("click", () => {
   decreaseSecondsWork();
