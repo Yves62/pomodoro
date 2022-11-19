@@ -1,36 +1,40 @@
-const timeWork = document.querySelector('#time-work');
-const timePause = document.querySelector('#time-pause');
-const btnStart = document.querySelector('#start');
-const btnReload = document.querySelector('#reload');
+const timeWork = document.querySelector("#time-work");
+const timePause = document.querySelector("#time-pause");
+const btnStart = document.querySelector("#start");
+const btnReload = document.querySelector("#reload");
 
-let seconds = 0;
-let minutes = 30;
+let secondsWork = 0;
+let minutesWork = 25;
 
 /**
  * Function to decreaseMinutes
  */
-function decreaseMinutes() {
-  if (seconds === 0) {
-    minutes--;
-    console.log(minutes, "minutes");
+function decreaseMinutesWork() {
+  if (secondsWork === 0) {
+    minutesWork--;
   }
 }
 
 /**
  * function to decrease seconds 59 to 00
  */
-function decreaseSeconds() {
+function decreaseSecondsWork() {
   setInterval(() => {
-    if (seconds === 0) {
-      decreaseMinutes();
-      seconds = 60;
-      seconds--;
-      seconds < 10 ? console.log('0'+seconds) : console.log(seconds)
+    if (secondsWork === 0) {
+      decreaseMinutesWork();
+      secondsWork = 60;
+      secondsWork--;
+      secondsWork < 10 ? timeWork.textContent = `${minutesWork} : 0${secondsWork}` : timeWork.textContent = `${minutesWork} : ${secondsWork}`;
     } else {
-      seconds--;
-      seconds < 10 ? console.log('0'+seconds) : console.log(seconds)
+      secondsWork--;
+      secondsWork < 10 ? timeWork.textContent = `${minutesWork} : 0${secondsWork}` : timeWork.textContent = `${minutesWork} : ${secondsWork}`;
     }
   }, 1000);
 }
 
-decreaseSeconds();
+// decreaseSecondsWork();
+
+btnStart.addEventListener("click", () => {
+  decreaseSecondsWork();
+  btnStart.textContent = 'stop'
+});
