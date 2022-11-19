@@ -9,4 +9,65 @@
 
 body{
     height: 100vh;
+    background: #B2FEFA;
+    background: -webkit-linear-gradient(to right, #0ED2F7, #B2FEFA);
+    background: linear-gradient(to right, #0ED2F7, #B2FEFA);
+}
+
+.container{
+    width: 80%;
+    height: fit-content;
+    background-color: transparent;
+    margin: 150px auto;
+}
+
+.container h1 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin: 10px;
+    font-weight: 400;
+    color: gray;
+}
+
+.container h1 span {
+    font-weight: 800;
+    color: black;
+}
+
+.container .time-group{
+    width: 95%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.container .time-group .minutes{
+    text-align: center;
+    padding: 20px;
+    background-color: lightcoral;
+    border-radius: 10px;
+}
+
+.container .time-group .minutes h2{
+    margin-bottom: 5px;
+}
+
+.container .btn-group{
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.container .btn-group button{
+   padding: 15px 0;
+   background-color: #fff;
+   border-radius: 10px;
+   border: none;
+   display: inline-block;
+   min-width: 70px;
+   cursor: pointer;
 }

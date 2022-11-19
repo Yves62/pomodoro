@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Pomodoro</title>
-</head>
-<body>
-    
+  </head>
+  <body>
     <div class="container">
-        <h1>Pomo<span>Doro</span></h1>
-        <div class="time-group">
-            <div class="minutes">
-                <h2>Travail</h2>
-                <p id="time-work">25 : 00</p>
-            </div>
-            <div class="minutes">
-                <h2>Détente</h2>
-                <p id="time-repos">5 : 00</p>
-            </div>
+      <h1>Pomo<span>Doro</span></h1>
+      <div class="time-group">
+        <div class="minutes">
+          <h2>Travail</h2>
+          <p id="time-work">25 : 00</p>
         </div>
-        <div class="btn-group">
-            <div class="btn-start">
-                <button id="start">GO</button>
-                <button id="pause">Pause</button>
-            </div>
-            <div class="reload">
-                <button id="reload">reload</button>
-            </div>
+        <div class="minutes">
+          <h2>Détente</h2>
+          <p id="time-repos">5 : 00</p>
         </div>
+      </div>
+      <div class="btn-group">
+        <button id="start">GO</button>
+        <button id="reload">reload</button>
+      </div>
     </div>
 
-
-
     <script src="app.js"></script>
-</body>
+  </body>
 </html>
