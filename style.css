@@ -54,6 +54,17 @@ body{
     margin-bottom: 5px;
 }
 
+.container .info{
+    text-align: center;
+}
+.container .info #emoji-work,
+.container .info #emoji-pause{
+    padding: 5px 8px;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+
 .container .btn-group{
     width: 100%;
     margin: 30px auto;

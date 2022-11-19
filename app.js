@@ -2,6 +2,9 @@ const timeWork = document.querySelector("#time-work");
 const timePause = document.querySelector("#time-pause");
 const btnStart = document.querySelector("#start");
 const btnReload = document.querySelector("#reload");
+const info = document.querySelector('.info')
+const infoWork = document.querySelector('#emoji-work');
+const infoPause = document.querySelector('#emoji-pause');
 
 let secondsWork = 0;
 let minutesWork = 25;
@@ -35,6 +38,8 @@ function stopCptWork() {
   if (secondsWork === 0 && minutesWork === 0) {
     timeWork.textContent = `${(minutesWork = 25)} : 0${(secondsWork = 0)}`;
     clearInterval(intervalWork);
+    infoWork.style.display = 'none';
+    infoPause.style.display = 'block';
     decreaseSecondsPause();
   }
 }
@@ -46,6 +51,7 @@ function stopCptPause() {
   if (secondsPause === 0 && minutesPause === 0) {
     timePause.textContent = `${(secondsPause = 5)} : 0${(minutesPause = 0)}`;
     clearInterval(intervalPause);
+    infoPause.style.display = 'none';
   }
 }
 
@@ -90,6 +96,7 @@ function decreaseSecondsPause() {
 }
 
 btnStart.addEventListener("click", () => {
+    infoWork.style.display = 'block';
   decreaseSecondsWork();
   btnStart.style.display = "none";
   btnReload.style.display = "block";
@@ -102,4 +109,6 @@ btnReload.addEventListener("click", () => {
   clearInterval(intervalPause);
   btnStart.style.display = "block";
   btnReload.style.display = "none";
+  infoWork.style.display = "none";
+  infoPause.style.display = "none";
 });
