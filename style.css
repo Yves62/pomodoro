@@ -47,7 +47,10 @@ body{
     text-align: center;
     padding: 20px;
     background-color: lightcoral;
-    border-radius: 10px;
+    border-radius: 10px; 
+    box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 0px 10px 0px rgba(0, 0, 0, 0.75);
 }
 
 .container .time-group .minutes h2{
@@ -65,6 +68,10 @@ body{
     background-color: white;
     border-radius: 10px;
     display: none;
+    box-shadow: -2px 0px 35px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: -2px 0px 35px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -2px 0px 35px 0px rgba(0, 0, 0, 0.75);
+    animation: pulse 2s infinite;
 }
 
 .container .btn-group{
