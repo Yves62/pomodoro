@@ -2,9 +2,9 @@ const timeWork = document.querySelector("#time-work");
 const timePause = document.querySelector("#time-pause");
 const btnStart = document.querySelector("#start");
 const btnReload = document.querySelector("#reload");
-const info = document.querySelector('.info')
-const infoWork = document.querySelector('#emoji-work');
-const infoPause = document.querySelector('#emoji-pause');
+const info = document.querySelector(".info");
+const infoWork = document.querySelector("#emoji-work");
+const infoPause = document.querySelector("#emoji-pause");
 
 let secondsWork = 0;
 let minutesWork = 25;
@@ -16,7 +16,7 @@ let intervalPause;
 /**
  * Function to decreaseMinutesWork
  */
-function decreaseMinutesWork() {
+const decreaseMinutesWork = () => {
   if (secondsWork === 0) {
     minutesWork--;
   }
@@ -25,7 +25,7 @@ function decreaseMinutesWork() {
 /**
  * Function to decreaseMinutesPause
  */
-function decreaseMinutesPause() {
+const decreaseMinutesPause = () => {
   if (secondsPause === 0) {
     minutesPause--;
   }
@@ -34,12 +34,12 @@ function decreaseMinutesPause() {
 /**
  * Function to clear interval work
  */
-function stopCptWork() {
+const stopCptWork = () => {
   if (secondsWork === 0 && minutesWork === 0) {
     timeWork.textContent = `${(minutesWork = 25)} : 0${(secondsWork = 0)}`;
     clearInterval(intervalWork);
-    infoWork.style.display = 'none';
-    infoPause.style.display = 'block';
+    infoWork.style.display = "none";
+    infoPause.style.display = "block";
     decreaseSecondsPause();
   }
 }
@@ -47,18 +47,18 @@ function stopCptWork() {
 /**
  * Function to clear interval pause
  */
-function stopCptPause() {
+const stopCptPause = () => {
   if (secondsPause === 0 && minutesPause === 0) {
     timePause.textContent = `${(secondsPause = 5)} : 0${(minutesPause = 0)}`;
     clearInterval(intervalPause);
-    infoPause.style.display = 'none';
+    infoPause.style.display = "none";
   }
 }
 
 /**
  * function to decrease seconds work 59 to 00
  */
-function decreaseSecondsWork() {
+const decreaseSecondsWork = () => {
   intervalWork = setInterval(() => {
     if (secondsWork === 0) {
       decreaseMinutesWork();
@@ -76,7 +76,7 @@ function decreaseSecondsWork() {
 /**
  * function to decrease seconds pause 59 to 00
  */
-function decreaseSecondsPause() {
+const decreaseSecondsPause = () => {
   intervalPause = setInterval(() => {
     if (secondsPause === 0) {
       decreaseMinutesPause();
@@ -96,7 +96,7 @@ function decreaseSecondsPause() {
 }
 
 btnStart.addEventListener("click", () => {
-    infoWork.style.display = 'block';
+  infoWork.style.display = "block";
   decreaseSecondsWork();
   btnStart.style.display = "none";
   btnReload.style.display = "block";
